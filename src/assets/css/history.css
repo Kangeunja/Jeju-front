@@ -1,0 +1,255 @@
+.story-wrap {
+  padding-top: 50px;
+}
+
+.story-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.story-title p:nth-child(1) {
+  color: #f96400;
+  font-size: 25px;
+}
+
+.story-title p:nth-child(2) {
+  color: #545454;
+  font-size: 16px;
+}
+
+.story-background-wrap {
+  width: 1200px;
+  margin-bottom: 100px;
+}
+
+.story-background-img1 {
+  width: 1200px;
+  height: 370px;
+  background-size: cover;
+  background-image: url("../img/history/history_1.png");
+  position: relative;
+}
+
+.story-background-box1 {
+  width: 600px;
+  height: 370px;
+  background-color: #363636;
+  position: absolute;
+  right: 0;
+  padding: 30px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.story-background-title {
+  text-align: center;
+}
+
+.story-background-title p:nth-child(1) {
+  font-size: 15px;
+}
+
+.story-background-title p:nth-child(2) {
+  font-size: 20px;
+}
+
+.story-background-title p:nth-child(3) {
+  margin-top: 30px;
+  font-size: 13px;
+}
+
+.story-background-img2 {
+  width: 1200px;
+  height: 370px;
+  background-size: cover;
+  background-image: url("../img/history/history_2.png");
+  position: relative;
+}
+
+.story-background-box2 {
+  width: 600px;
+  height: 370px;
+  background-color: #ffffff;
+  position: absolute;
+  left: 0;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.living-wrap {
+  width: 100%;
+}
+
+.living-title {
+  font-size: 25px;
+  width: 600px;
+  text-align: center;
+  margin: 100px auto;
+}
+
+.living-title p:nth-child(2) {
+  color: #3a3a3a;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.living-con {
+  width: 100px;
+  height: 35px;
+  background-color: #eb9c18;
+  border-radius: 30px;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  line-height: 35px;
+  margin: 100px auto 50px auto;
+}
+
+.living-con-wrap {
+  width: 900px;
+  margin: 0 auto;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.living-img-wrap {
+  width: 200px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.living-img-wrap img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.living-con-title {
+  height: 250px;
+  text-align: center;
+}
+
+.living-con-title p:nth-child(1) {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.living-con-title p:nth-child(2) {
+  color: #968f8f;
+  font-size: 15px;
+}
+
+.living-food-wrap {
+  width: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.living-food-box {
+  width: 250px;
+  height: 240px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 100px;
+}
+
+.living-food-box img {
+  width: 200px;
+  height: 240px;
+  border-radius: 50px;
+}
+
+.living-food-slide {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.living-food-con {
+  width: 200px;
+  height: 240px;
+  background-color: rgba(0, 0, 0, 50%);
+  border-radius: 50px;
+  position: absolute;
+  text-align: center;
+  color: white;
+  padding: 15px;
+  box-sizing: border-box;
+  opacity: 0;
+  transition: all 0.4s ease;
+  display: flex;
+  align-items: center;
+}
+
+.living-food-title p:nth-child(1) {
+  margin-bottom: 20px;
+}
+
+.living-food-title p:nth-child(2) {
+  font-size: 13px;
+}
+
+.living-food-box:hover .living-food-con {
+  opacity: 1;
+}
+
+.living-food-wrap .swiper .swiper-pagination-bullet {
+  width: 13px;
+  height: 13px;
+  background: rgb(255, 255, 255);
+}
+
+.living-food-wrap .swiper .swiper-pagination-bullet-active {
+  opacity: 1;
+  background: #ff7626;
+}
+
+.living-house-wrap {
+  width: 100%;
+}
+
+.living-house-box-wrap {
+  width: 1100px;
+  margin: 0 auto;
+  justify-content: space-between;
+  display: flex;
+}
+
+.living-house-box {
+  width: 350px;
+  height: 367px;
+  background-color: white;
+  box-shadow: 3px 2px 18px 0px rgba(0, 0, 0, 0.5);
+  border-radius: 38px;
+  position: relative;
+  top: 80px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.living-house-title p:nth-child(1) {
+  font-size: 18px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.living-house-title p:nth-child(2) {
+  font-size: 13px;
+  color: #2f2f2f;
+}
+
+.living-bottom-con {
+  width: 100%;
+  height: 285px;
+  background-color: #fa7d00;
+}

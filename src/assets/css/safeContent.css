@@ -1,0 +1,129 @@
+.safe-subTitle {
+  display: flex;
+  margin-bottom: 50px;
+}
+
+.safe-subTitle-box {
+  width: 200px;
+  height: 35px;
+  background-color: #818181;
+  border-radius: 20px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.safe-subTitle-box:hover {
+  background-color: #f96400;
+  cursor: pointer;
+}
+
+.safeTabColor {
+  background-color: #f96400;
+}
+
+.safe-check-wrap,
+.safe-tip-wrap {
+  margin-bottom: 150px;
+}
+
+.safe-title-wrap {
+  margin-bottom: 50px;
+}
+
+.safe-title-wrap p:nth-child(1) {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.safe-title-wrap p:nth-child(2) {
+  font-size: 15px;
+  color: #242424;
+}
+
+.safe-house-wrap {
+  margin-bottom: 200px;
+}
+
+.safe-house-wrap p {
+  margin-bottom: 30px;
+  color: #968f8f;
+}
+
+.safe-table {
+  width: 1200px;
+  border: 1px solid #b5b2b2;
+}
+
+.safe-table thead {
+  height: 50px;
+}
+
+.safe-table tbody {
+  text-align: center;
+}
+
+.safe-table tbody td {
+  height: 40px;
+  border-top: 1px solid #dddbdb;
+  font-size: 14px;
+  color: #292929;
+}
+
+.safe-application-wrap {
+  margin-bottom: 100px;
+}
+
+.safe-application-con {
+  margin-top: 50px;
+  display: flex;
+}
+
+.safe-application-left {
+  float: left;
+}
+
+.safe-application-con img {
+  width: 110px;
+  height: 110px;
+  margin-right: 50px;
+}
+
+.safe-application-text p:nth-child(1) {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.safe-application-text p:nth-child(2) {
+  font-size: 15px;
+}
+
+.safe-application-icon {
+  margin-top: 10px;
+}
+
+.safe-application-icon button {
+  width: 100px;
+  height: 30px;
+  border: 1px solid #bfbfbf;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.safe-application-icon button:hover {
+  background-color: #dad6d6;
+}
+
+.safe-application-icon1 {
+  background: url("../img/tour/google-icon.png") no-repeat 5px center / 20px
+    auto;
+  padding-left: 20px;
+}
+
+.safe-application-icon2 {
+  background: url("../img/tour/apple-icon.png") no-repeat 5px center / 20px auto;
+  padding-left: 20px;
+}

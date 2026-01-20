@@ -1,0 +1,309 @@
+.travel-main-wrap {
+  width: 100%;
+  padding-top: 50px;
+}
+
+.travel-main-title {
+  text-align: center;
+  /* margin: 100px 0 50px 0; */
+  margin-bottom: 50px;
+}
+
+.travel-main-title p:nth-child(1) {
+  color: #f96400;
+  font-size: 35px;
+}
+
+.travel-main-title p:nth-child(2) {
+  color: #545454;
+  font-size: 20px;
+}
+
+.travel-main-top-con {
+  width: 680px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  color: #757575;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 50px;
+}
+
+.travel-main-top-con p:hover {
+  color: #e26f00;
+  cursor: pointer;
+}
+
+.active-month {
+  color: #e26f00;
+}
+
+.travel-main-top-wrap {
+  margin-bottom: 200px;
+  font-size: 18px;
+}
+
+.travel-main-top-title {
+  width: 300px;
+  height: 30px;
+  border-bottom: 1px dashed #968f8f;
+  margin-bottom: 30px;
+}
+
+.festival-main-con-wrap {
+  display: flex;
+  width: 1200px;
+  gap: 20px;
+  margin-bottom: 150px;
+}
+
+.festival-main-con-wrap img {
+  width: 300px;
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+.festival-main-con-wrap h4 {
+  color: #851c43;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.festival-main-con-wrap p {
+  width: 300px;
+  color: #828282;
+  font-size: 15px;
+}
+
+.travel-schedule-wrap {
+  width: 100%;
+  background-color: #efefef;
+  position: relative;
+  padding: 50px 0 100px 0;
+  box-sizing: border-box;
+}
+
+.travel-schedule-title {
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.travel-schedule-title p:nth-child(1) {
+  color: #f96400;
+  font-size: 35px;
+}
+
+.travel-schedule-title p:nth-child(2) {
+  font-size: 20px;
+}
+
+.travel-schedule-con-wrap {
+  width: 500px;
+  height: 750px;
+  background-image: url("../img/travel/phone-design.png");
+  background-size: cover;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* .travel-schedule-background-wrap {
+  position: relative;
+} */
+
+/* .travel-schedule-background1 {
+  width: 100%;
+  height: 600px;
+  background-image: url("../img/travel/schedule-background1.png");
+  margin-top: 10px;
+  background-size: cover;
+  position: relative;
+} */
+
+/* 
+.travel-schedule-background2 {
+  width: 100%;
+  height: 650px;
+  background-image: url("../img/travel/schedule-background2.png");
+  margin-bottom: 100px;
+  background-size: cover;
+} */
+
+.travel-schedule-slider-container {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  top: 200px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.travel-schedule-slider-container button {
+  width: 30px;
+  height: 30px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  font-size: 20px;
+  position: absolute;
+  top: 40%;
+  color: white;
+}
+
+.travel-schedule-slider-container img {
+  width: 330px;
+  height: 350px;
+}
+
+.slider-btn-left {
+  left: 10px;
+}
+
+.slider-btn-right {
+  right: -20px;
+}
+
+.slider-btn-left:hover,
+.slider-btn-right:hover {
+  cursor: pointer;
+  color: #828282;
+}
+
+.travel-schedule-girl-icon {
+  width: 300px;
+  height: 500px;
+  background-image: url("../img//travel/travel-girl.png");
+  background-size: cover;
+  position: absolute;
+  bottom: 100px;
+  left: 350px;
+}
+
+.travel-insta-wrap {
+  width: 100%;
+  margin-bottom: 150px;
+}
+
+.travel-insta-title {
+  text-align: center;
+  padding-top: 100px;
+  box-sizing: border-box;
+  margin-bottom: 50px;
+}
+
+.travel-insta-title p:nth-child(1) {
+  color: #595959;
+}
+
+.travel-insta-title p:nth-child(2) {
+  font-size: 30px;
+}
+
+.travel-insta-con-wrap {
+  width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.travel-insta-con {
+  width: 250px;
+  height: 270px;
+  background-color: white;
+  box-shadow: 0px 4px 24.1px 0px rgba(0, 0, 0, 0.25);
+  padding: 20px;
+  box-sizing: border-box;
+  color: #851c43;
+}
+
+.travel-insta-con:nth-child(1) p {
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+.travel-insta-box1 {
+  width: 100px;
+  height: 100px;
+  background-image: url("../img/travel/travel-insta-img1.png");
+  background-size: cover;
+  float: right;
+  margin-bottom: 10px;
+}
+
+.travel-insta-box2 {
+  width: 100%;
+  height: 80px;
+  background-image: url("../img/travel/travel-insta-img2.png");
+  background-size: cover;
+  float: right;
+}
+
+.travel-insta-con:nth-child(2) .travel-insta-box {
+  position: relative;
+  top: 20px;
+}
+
+.travel-insta-con:nth-child(2) p {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.travel-insta-box3 {
+  width: 150px;
+  height: 80px;
+  background-image: url("../img/travel/travel-insta-img3.png");
+  background-size: cover;
+  margin-bottom: 10px;
+}
+
+.travel-insta-box4 {
+  width: 100%;
+  height: 80px;
+  background-image: url("../img/travel/travel-insta-img4.png");
+  background-size: cover;
+}
+
+.travel-insta-box5 {
+  width: 100px;
+  height: 80px;
+  background-image: url("../img/travel/travel-insta-img5.png");
+  background-size: cover;
+}
+
+.travel-insta-con:nth-child(3) p {
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+.travel-insta-box6 {
+  width: 90px;
+  height: 110px;
+  background-image: url("../img/travel/travel-insta-img6.png");
+  background-size: cover;
+  float: right;
+}
+
+.travel-insta-box7 {
+  width: 100px;
+  height: 80px;
+  background-image: url("../img/travel/travel-insta-img7.png");
+  background-size: cover;
+  float: right;
+}
+
+.travel-insta-con:nth-child(4) p {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.travel-insta-box8 {
+  width: 90px;
+  height: 110px;
+  background-image: url("../img/travel/travel-insta-img8.png");
+  background-size: cover;
+  float: left;
+}
+
+.travel-insta-con:nth-child(4) .travel-insta-box {
+  position: relative;
+  top: 80px;
+}
