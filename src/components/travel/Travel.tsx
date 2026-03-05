@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "../../assets/css/travel.css";
 import HeroSection from "../../layouts/heroSection/HeroSection";
 
@@ -8,22 +8,28 @@ import travelImage3 from "../../assets/img/travel/travel-con3.png";
 import travelImage4 from "../../assets/img/travel/travel-con4.png";
 import travelImage5 from "../../assets/img/travel/travel-con5.png";
 import travelImage6 from "../../assets/img/travel/travel-con6.png";
+import { fetchFestivalByMonth } from "../../api/festivalApi";
 
 type FestivalItem = {
+  id: number;
+  month: string;
+  status: "coming" | "ended";
   title: string;
   explan: string;
 };
 
-type FestivalDataType = {
-  [key: string]: {
-    coming: FestivalItem[];
-    ended: FestivalItem[];
-  };
+type CurrentDataType = {
+  coming: FestivalItem[];
+  ended: FestivalItem[];
 };
 
 const Travel = () => {
-  const [selectMonth, setSelectMonth] = useState<string | null>("1월"); // 선택한 월
+  const [selectMonth, setSelectMonth] = useState<string>("1월"); // 선택한 월
   const [recommendIndex, setRecommendIndex] = useState(0);
+  const [currentData, setCurrentData] = useState<CurrentDataType>({
+    coming: [],
+    ended: [],
+  });
 
   // 각 섹션의 ref
   const themeRef = useRef<HTMLDivElement | null>(null);
@@ -45,65 +51,6 @@ const Travel = () => {
     { day: "11월" },
     { day: "12월" },
   ];
-
-  // 축제 임시 데이터
-  const festivalData: FestivalDataType = {
-    "1월": {
-      coming: [
-        {
-          title: "마노르블랑 동백꽃축제",
-          explan:
-            "서귀포시에 위치한 마노르블랑에서 매년 동백꽃 축제가 열려 관광객들은 물론 도민까지 찾는 명소입니다.",
-        },
-        {
-          title: "휴애리 동백축제",
-          explan:
-            "서귀포시 남원읍에 위치한 축제로 동백꽃 포토존뿐만 아니라 다양한 체험들이 준비되어 있습니다.",
-        },
-      ],
-      ended: [
-        {
-          title: "한림공원 수선화축제",
-          explan:
-            "한림공원은 수선화를 1월의 꽃으로 선정하여 수선화 축제를 개최하고 있습니다.",
-        },
-      ],
-    },
-
-    "2월": {
-      coming: [
-        // {
-        //   title: "마노르블랑 동백꽃축제",
-        //   explan:
-        //     "서귀포시에 위치한 마노르블랑에서 매년 동백꽃 축제가 열려 관광객들은 물론 도민까지 찾는 명소입니다.",
-        // },
-      ],
-      ended: [
-        {
-          title: "마노르블랑 동백꽃축제",
-          explan:
-            "서귀포시에 위치한 마노르블랑에서 매년 동백꽃 축제가 열려 관광객들은 물론 도민까지 찾는 명소입니다.",
-        },
-      ],
-    },
-
-    "3월": {
-      coming: [
-        {
-          title: "마노르블랑 동백꽃축제",
-          explan:
-            "서귀포시에 위치한 마노르블랑에서 매년 동백꽃 축제가 열려 관광객들은 물론 도민까지 찾는 명소입니다.",
-        },
-      ],
-      ended: [
-        // {
-        //   title: "휴애리 동백축제",
-        //   explan:
-        //     "서귀포시 남원읍에 위치한 축제로 동백꽃 포토존뿐만 아니라 다양한 체험들이 준비되어 있습니다.",
-        // },
-      ],
-    },
-  };
 
   // 축제 일정 임시 데이터
   const recomData = [
@@ -137,16 +84,29 @@ const Travel = () => {
   const subTitle = {
     title1: "테마여행",
     title2: "추천일정",
-    title3: "제주도 축제기간",
+    title3: "여행공유",
   };
+
+  // 초기로드
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const data = await fetchFestivalByMonth(selectMonth);
+        setCurrentData({
+          coming: data.filter((f: any) => f.status === "coming"),
+          ended: data.filter((f: any) => f.status === "ended"),
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    loadData();
+  }, [selectMonth]);
 
   // 선택한 월의 상태 토글 이벤트
-  const handleClick = (month: string) => {
+  const handleClick = async (month: string) => {
     setSelectMonth(month);
-    // setSelectMonth((prev) => (prev === month ? null : month));
   };
-
-  const currentData = selectMonth ? festivalData[selectMonth] : null;
 
   // 추천 일정 왼쪽버튼
   const prevSlide = () => {
@@ -192,10 +152,10 @@ const Travel = () => {
             </div>
 
             <div className="festival-main-con-wrap">
-              {currentData?.coming.length ? (
-                currentData.coming.map((item, index) => (
-                  <div key={index}>
-                    <img src="" alt="" />
+              {currentData.coming.length > 0 ? (
+                currentData.coming.map((item) => (
+                  <div key={item.id}>
+                    <img src="" alt="이미지 준비중" />
                     <h4>{item.title}</h4>
                     <p>{item.explan}</p>
                   </div>
@@ -211,9 +171,9 @@ const Travel = () => {
 
             <div className="festival-main-con-wrap">
               {currentData?.ended.length ? (
-                currentData.ended.map((item, index) => (
-                  <div key={index}>
-                    <img src="" alt="" />
+                currentData.ended.map((item) => (
+                  <div key={item.id}>
+                    <img src="" alt="이미지 준비중" />
                     <h4>{item.title}</h4>
                     <p>{item.explan}</p>
                   </div>
@@ -222,9 +182,6 @@ const Travel = () => {
                 <p>등록된 축제가 없습니다.</p>
               )}
             </div>
-
-            {currentData?.coming.length === 0 &&
-              currentData.ended.length === 0 && <p>등록된 축제가 없습니다.</p>}
           </div>
         </div>
       </div>
@@ -250,8 +207,17 @@ const Travel = () => {
               &#10095;
             </button>
           </div>
+
+          <div className="travel-schedule-box">
+            <div className="travel-schedule-girl"></div>
+            <div className="travel-schedule-box2"></div>
+          </div>
+
+          <div className="travel-schedule-box3">
+            <div className="travel-schedule-girl2"></div>
+            <div className="travel-schedule-box4"></div>
+          </div>
         </div>
-        <div className="travel-schedule-girl-icon"></div>
       </div>
 
       <div className="travel-insta-wrap" ref={shareRef}>

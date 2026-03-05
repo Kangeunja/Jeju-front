@@ -176,6 +176,7 @@
 
 .info-bottom-direction {
   margin-top: 80px;
+  margin-bottom: 100px;
 }
 
 .info-bottom-direction-title {
@@ -227,5 +228,5 @@
 
 .safe-title p:nth-child(2) {
   color: #545454;
-  font-size: 20px;
+  font-size: 16px;
 }

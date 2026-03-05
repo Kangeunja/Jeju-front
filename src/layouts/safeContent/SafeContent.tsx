@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../../assets/css/safeContent.css";
 
 import SafeImg1 from "../../assets/img/tour/safe-img1.png";
@@ -7,10 +7,23 @@ import SafeImg3 from "../../assets/img/tour/safe-img3.png";
 import SafeImg4 from "../../assets/img/tour/safe-img4.png";
 import SafeImg5 from "../../assets/img/tour/safe-img5.png";
 import SafeImg6 from "../../assets/img/tour/safe-img6.png";
+import { fetchSafeHouses } from "../../api/safeHouseApi";
+import axios from "axios";
+import { data } from "react-router-dom";
+
+type safeType = {
+  id: number;
+  region: string;
+  county: string;
+  business: string;
+  location: string;
+  phone: string;
+};
 
 const SafeContent = () => {
   // 현재 선택된 탭
   const [currentTab, setCurrentTab] = useState("안심숙소 체크가이드");
+  const [safeHouses, setSafeHouses] = useState<safeType[]>([]);
 
   // 안전 안심가이드 네비게이션 데이터
   const tabs = [
@@ -116,95 +129,6 @@ const SafeContent = () => {
     },
   ];
 
-  // 인전인증민박 바디 테이블 데이터
-  const body = [
-    {
-      region: "제주시",
-      county: "구좌읍",
-      business: "두두다민박",
-      location: "제주시 도두봉6길 9-4(도두일동)",
-      phone: "010-3693-8553",
-    },
-    {
-      region: "제주시",
-      county: "구좌읍",
-      business: "두두다민박",
-      location: "제주시 도두봉6길 9-4(도두일동)",
-      phone: "010-3693-8553",
-    },
-
-    {
-      region: "제주시",
-      county: "구좌읍",
-      business: "두두다민박",
-      location: "제주시 도두봉6길 9-4(도두일동)",
-      phone: "010-3693-8553",
-    },
-    {
-      region: "제주시",
-      county: "구좌읍",
-      business: "두두다민박",
-      location: "제주시 도두봉6길 9-4(도두일동)",
-      phone: "010-3693-8553",
-    },
-    {
-      region: "제주시",
-      county: "구좌읍",
-      business: "두두다민박",
-      location: "제주시 도두봉6길 9-4(도두일동)",
-      phone: "010-3693-8553",
-    },
-    {
-      region: "제주시",
-      county: "구좌읍",
-      business: "두두다민박",
-      location: "제주시 도두봉6길 9-4(도두일동)",
-      phone: "010-3693-8553",
-    },
-    {
-      region: "제주시",
-      county: "구좌읍",
-      business: "두두다민박",
-      location: "제주시 도두봉6길 9-4(도두일동)",
-      phone: "010-3693-8553",
-    },
-    {
-      region: "제주시",
-      county: "구좌읍",
-      business: "두두다민박",
-      location: "제주시 도두봉6길 9-4(도두일동)",
-      phone: "010-3693-8553",
-    },
-    {
-      region: "제주시",
-      county: "구좌읍",
-      business: "두두다민박",
-      location: "제주시 도두봉6길 9-4(도두일동)",
-      phone: "010-3693-8553",
-    },
-    {
-      region: "제주시",
-      county: "구좌읍",
-      business: "두두다민박",
-      location: "제주시 도두봉6길 9-4(도두일동)",
-      phone: "010-3693-8553",
-    },
-    {
-      region: "제주시",
-      county: "구좌읍",
-      business: "두두다민박",
-      location: "제주시 도두봉6길 9-4(도두일동)",
-      phone: "010-3693-8553",
-    },
-    {
-      region: "제주시",
-      county: "구좌읍",
-      business: "두두다민박",
-      location: "제주시 도두봉6길 9-4(도두일동)",
-      phone: "010-3693-8553",
-    },
-  ];
-
   // 어플리케이션 데이터
   const applicationData = [
     {
@@ -244,6 +168,20 @@ const SafeContent = () => {
         "보호가 필요한 시간과 안전을 확인할 시간 주기를 설정하고 시작 버튼을 누른 후 안전 확인 주기나 종료 시간에 사용자가 미리 설정한 비밀 암호에 대하여 응답이 없거나 틀리면 위급 상황으로 간주하고 사용자 대신 자동으로 도움 요청(자동신고)을 합니다!",
     },
   ];
+
+  useEffect(() => {
+    fetchSpots();
+  }, []);
+
+  const fetchSpots = async () => {
+    try {
+      const data = await fetchSafeHouses();
+      const sortedData = [...data].sort((a, b) => b.id - a.id);
+      setSafeHouses(sortedData);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div>
@@ -299,15 +237,14 @@ const SafeContent = () => {
               </tr>
             </thead>
             <tbody>
-              {body.map((item, idx) => (
-                <tr key={idx}>
-                  {headers.map((header) => {
-                    const value =
-                      header.key === "index"
-                        ? body.length - idx
-                        : item[header.key as keyof typeof item];
-                    return <td>{value}</td>;
-                  })}
+              {safeHouses.map((item, idx) => (
+                <tr key={item.id}>
+                  <td>{safeHouses.length - idx}</td>
+                  <td>{item.region}</td>
+                  <td>{item.county}</td>
+                  <td>{item.business}</td>
+                  <td>{item.location}</td>
+                  <td>{item.phone}</td>
                 </tr>
               ))}
             </tbody>

@@ -35,8 +35,12 @@ const Header = () => {
     <>
       <div className={`header ${isShrink ? "shrink" : ""}`}>
         <div className="side-menu">
-          <p>제주관광공사</p>
-          <p>제주시청</p>
+          <button onClick={() => navigate("https://ijto.or.kr/korean/")}>
+            제주관광공사
+          </button>
+          <button onClick={() => navigate("https://www.jejusi.go.kr/")}>
+            제주시청
+          </button>
           <img src={LogoJeju} alt="logo" />
         </div>
         <div className="in-header">

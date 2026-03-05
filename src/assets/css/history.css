@@ -216,6 +216,7 @@
 
 .living-house-wrap {
   width: 100%;
+  margin-bottom: 150px;
 }
 
 .living-house-box-wrap {
@@ -250,6 +251,44 @@
 
 .living-bottom-con {
   width: 100%;
-  height: 285px;
+  height: 250px;
   background-color: #fa7d00;
+  display: flex;
+  justify-content: center;
+}
+
+.living-bottom-con img {
+  width: 350px;
+  height: 175px;
+  position: relative;
+  top: 80px;
+}
+
+.history_wrap {
+  width: 100%;
+  padding-top: 100px;
+}
+
+.history_title {
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.history_title p:nth-child(1) {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+.history_title p:nth-child(2) {
+  color: #3a3a3a;
+  font-size: 16px;
+}
+
+.history_content {
+  width: 100%;
+  text-align: center;
+  padding: 50px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  margin-bottom: 150px;
 }

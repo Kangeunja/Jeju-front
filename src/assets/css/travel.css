@@ -5,18 +5,17 @@
 
 .travel-main-title {
   text-align: center;
-  /* margin: 100px 0 50px 0; */
   margin-bottom: 50px;
 }
 
 .travel-main-title p:nth-child(1) {
   color: #f96400;
-  font-size: 35px;
+  font-size: 28px;
 }
 
 .travel-main-title p:nth-child(2) {
   color: #545454;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .travel-main-top-con {
@@ -25,7 +24,7 @@
   justify-content: space-between;
   margin: 0 auto;
   color: #757575;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 500;
   margin-bottom: 50px;
 }
@@ -40,7 +39,7 @@
 }
 
 .travel-main-top-wrap {
-  margin-bottom: 200px;
+  margin-bottom: 150px;
   font-size: 18px;
 }
 
@@ -62,6 +61,8 @@
   width: 300px;
   height: 200px;
   margin-bottom: 20px;
+  border: 1px solid #828282;
+  box-sizing: border-box;
 }
 
 .festival-main-con-wrap h4 {
@@ -77,25 +78,82 @@
 }
 
 .travel-schedule-wrap {
-  width: 100%;
-  background-color: #efefef;
   position: relative;
-  padding: 50px 0 100px 0;
-  box-sizing: border-box;
 }
 
 .travel-schedule-title {
-  text-align: center;
   margin-bottom: 100px;
+  text-align: center;
 }
 
 .travel-schedule-title p:nth-child(1) {
   color: #f96400;
-  font-size: 35px;
+  font-size: 28px;
 }
 
 .travel-schedule-title p:nth-child(2) {
-  font-size: 20px;
+  font-size: 16px;
+}
+
+.travel-schedule-box-wrap {
+  position: relative;
+}
+
+.travel-schedule-box {
+  width: 225px;
+  height: 225px;
+  background-color: #e1eeff;
+  border-radius: 50%;
+  position: absolute;
+  right: -300px;
+  top: 50px;
+}
+
+.travel-schedule-girl {
+  width: 96px;
+  height: 229px;
+  background-image: url("../img/main/main-schedule-girl1.png");
+  position: absolute;
+  bottom: 150px;
+  right: 70px;
+}
+
+.travel-schedule-box2 {
+  width: 80px;
+  height: 80px;
+  background-color: #88abda;
+  border-radius: 50%;
+  position: absolute;
+  top: 200px;
+  left: 250px;
+}
+
+.travel-schedule-box3 {
+  width: 225px;
+  height: 225px;
+  background-color: #e1eeff;
+  border-radius: 50%;
+  position: absolute;
+  right: 500px;
+  top: 400px;
+}
+
+.travel-schedule-girl2 {
+  width: 200px;
+  height: 365px;
+  background-image: url("../img/main/travel-schedule-girl2.png");
+  position: absolute;
+  bottom: 100px;
+}
+
+.travel-schedule-box4 {
+  width: 80px;
+  height: 80px;
+  background-color: #f7b658;
+  border-radius: 50%;
+  position: absolute;
+  right: 300px;
+  top: -50px;
 }
 
 .travel-schedule-con-wrap {
@@ -103,31 +161,9 @@
   height: 750px;
   background-image: url("../img/travel/phone-design.png");
   background-size: cover;
+  position: relative;
   margin: 0 auto;
-  position: relative;
 }
-
-/* .travel-schedule-background-wrap {
-  position: relative;
-} */
-
-/* .travel-schedule-background1 {
-  width: 100%;
-  height: 600px;
-  background-image: url("../img/travel/schedule-background1.png");
-  margin-top: 10px;
-  background-size: cover;
-  position: relative;
-} */
-
-/* 
-.travel-schedule-background2 {
-  width: 100%;
-  height: 650px;
-  background-image: url("../img/travel/schedule-background2.png");
-  margin-bottom: 100px;
-  background-size: cover;
-} */
 
 .travel-schedule-slider-container {
   width: 300px;
@@ -168,24 +204,14 @@
   color: #828282;
 }
 
-.travel-schedule-girl-icon {
-  width: 300px;
-  height: 500px;
-  background-image: url("../img//travel/travel-girl.png");
-  background-size: cover;
-  position: absolute;
-  bottom: 100px;
-  left: 350px;
-}
-
 .travel-insta-wrap {
   width: 100%;
+  padding-top: 150px;
   margin-bottom: 150px;
 }
 
 .travel-insta-title {
   text-align: center;
-  padding-top: 100px;
   box-sizing: border-box;
   margin-bottom: 50px;
 }
@@ -195,7 +221,7 @@
 }
 
 .travel-insta-title p:nth-child(2) {
-  font-size: 30px;
+  font-size: 28px;
 }
 
 .travel-insta-con-wrap {

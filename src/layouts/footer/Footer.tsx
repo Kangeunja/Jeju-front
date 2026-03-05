@@ -3,7 +3,7 @@ import "../../assets/css/footer.css";
 const Footer = () => {
   return (
     <div className="footer-wrap">
-      <div className="footer-banner"></div>
+      {/* <div className="footer-banner"></div> */}
       <div className="footer-bottom-wrap">
         <div className="footer-container">
           <div className="footer-top-text">

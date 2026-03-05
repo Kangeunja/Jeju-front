@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import "../../assets/css/main.css";
+import { fetchSpots } from "../../api/spotsApi";
 
 import MainImage1 from "../../assets/img/main/main-images1.png";
 import MainImage2 from "../../assets/img/main/main-images2.png";
@@ -10,19 +11,18 @@ import TopImage2 from "../../assets/img/main/main-top-images2.png";
 import TopImage3 from "../../assets/img/main/main-top-images3.png";
 import TopImage4 from "../../assets/img/main/main-top-images4.png";
 
-import MainRecoImage1 from "../../assets/img/main/main-reco-img1.png";
-import MainRecoImage2 from "../../assets/img/main/main-reco-img2.png";
-import MainRecoImage3 from "../../assets/img/main/main-reco-img3.png";
-import MainRecoImage4 from "../../assets/img/main/main-reco-img4.png";
-
 import BarcordImage from "../../assets/img/main/main-barcode.png";
+import { useNavigate } from "react-router-dom";
 
 const Main = () => {
   const [currentIndex, setCurrentIndex] = useState(0); // 현재 보여줄 슬라이드 이미지의 인덱스
   const [isPlaying] = useState(true);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const [recommendIndex, setRecommendIndex] = useState(0);
+  const navigate = useNavigate();
 
+  // 추천 여행코스 데이터
+  const [contentData, setContentData] = useState<any[]>([]);
   // 자동 슬라이드 메인이미지 데이터
   const images = [
     { src: MainImage1, alt: "유채꽃이 넓게 펼쳐진 이미지" },
@@ -36,59 +36,36 @@ const Main = () => {
       src: TopImage1,
       alt: "지도 이미지",
       title: "테마여행",
+      navigate: "/travel",
     },
     {
       src: TopImage2,
       alt: "유튜브 이미지",
       title: "스크린여행",
+      navigate: "/screen",
     },
     {
       src: TopImage3,
       alt: "자동차 이미지",
       title: "교통정보",
+      navigate: "/tour",
     },
     {
       src: TopImage4,
       alt: "열쇠 이미지",
       title: "안전인증민박",
+      navigate: "/tour",
     },
   ];
 
-  // 추천 여행코스 임시 데이터
-  const contentData = [
-    {
-      index: 1,
-      src: MainRecoImage1,
-      title: "더럭분교",
-      description:
-        "알록달록한 학교 모든 곳이 포토존! 곳곳에 소소한 매력과 감성을 불러일으킬 수 있는 정겨움도 숨겨져 있습니다.",
-      alt: "학교 이미지",
-    },
-    {
-      index: 2,
-      src: MainRecoImage2,
-      title: "천왕사 삼나무길",
-      description:
-        "제주에서 아름다운 숲길에 선정된 곳이기도 하고 ‘효리네 민박’에서 이효리가 추천한 곳으로 맑은 공기와 함께 여유로운 산책을 즐길 수 있습니다.",
-      alt: "삼나무 이미지",
-    },
-    {
-      index: 3,
-      src: MainRecoImage3,
-      title: "성이시돌 목장",
-      description:
-        "짧은 산책 코스와 스냅 사진 촬영 장소로 유명해 발길이 끊이지 않는 이곳은 대자연의 이국적인 매력을 갖고 있는 곳입니다.",
-      alt: "목장 이미지",
-    },
-    {
-      index: 4,
-      src: MainRecoImage4,
-      title: "더럭분교",
-      description:
-        "인생샷하면 빠질 수 없는 곳 중에 하나! 마치 외국에 온 것 같은 느낌과 색다른 매력을 느낄 수 있으며 남녀노소 누구에게나 핫한 장소이기도 합니다.",
-      alt: "동굴 이미지",
-    },
-  ];
+  useEffect(() => {
+    fetchSpots()
+      .then((data: any) => {
+        console.log("MSW spots:", data); // 데이터 확인
+        setContentData(data);
+      })
+      .catch((err: any) => console.error(err));
+  }, []);
 
   // 자동 슬라이드 처리
   useEffect(() => {
@@ -106,14 +83,14 @@ const Main = () => {
   // 추천 여행코스 왼쪽버튼
   const prevSlide = () => {
     setRecommendIndex((prev) =>
-      prev === 0 ? contentData.length - 1 : prev - 1
+      prev === 0 ? contentData.length - 1 : prev - 1,
     );
   };
 
   // 추천 여행코스 오른쪽 버튼
   const nextSlide = () => {
     setRecommendIndex((prev) =>
-      prev === contentData.length - 1 ? 0 : prev + 1
+      prev === contentData.length - 1 ? 0 : prev + 1,
     );
   };
 
@@ -152,7 +129,11 @@ const Main = () => {
             </div>
             <div className="main-top-con-wrap">
               {topImages.map((item, index) => (
-                <div key={index} className="main-top-circle">
+                <div
+                  key={index}
+                  className="main-top-circle"
+                  onClick={() => navigate(`${item.navigate}`)}
+                >
                   <img src={item.src} alt={item.alt} />
                   <p>{item.title}</p>
                 </div>
@@ -163,28 +144,33 @@ const Main = () => {
       </div>
       <div className="main-reco-wrap">
         <div className="container">
-          {/* <div className="main-reco-title-wrap"> */}
-          {/* <div className="main-reco-icon"></div> */}
           <div className="main-reco-title">
             이런 <span>추천여행코스</span>는 어때요?
             <p>어디로 갈지 고민하는 분들을 위해 추천하는 추천코스 정보입니다</p>
           </div>
-          {/* </div> */}
 
           <div className="main-reco-con-wrap">
-            <div className="main-reco-left-wrap"></div>
+            <div className="main-reco-left-wrap">
+              <p>이미지 준비중입니다.</p>
+            </div>
             <div className="main-reco-right-wrap">
               <button className="main-reco-btn left" onClick={prevSlide}>
                 &#10094;
               </button>
 
               <div className="main-reco-con">
-                {`${contentData[recommendIndex].index}코스. ${contentData[recommendIndex].title}`}
-                <img
-                  src={contentData[recommendIndex].src}
-                  alt={contentData[recommendIndex].alt}
-                />
-                <p>{contentData[recommendIndex].description}</p>
+                {contentData[recommendIndex] ? (
+                  <>
+                    {`${contentData[recommendIndex].index}코스. ${contentData[recommendIndex].title}`}
+                    <img
+                      src={contentData[recommendIndex].src}
+                      alt={contentData[recommendIndex].alt}
+                    />
+                    <p>{contentData[recommendIndex].description}</p>
+                  </>
+                ) : (
+                  <p>Loading</p>
+                )}
               </div>
 
               <div className="main-reco-barcode">
@@ -198,11 +184,11 @@ const Main = () => {
           </div>
           <div className="main-bottom-con">
             <div className="main-bottom-icon"></div>
-            <p>공지사항</p>
+            <p className="main-bottom-info">공지사항</p>
             <div className="main-bottom-box">
               뷰(view)티풀 제주 이벤트! 내가 제일 좋아하는 제주의 여름 여행지는?
             </div>
-            <p>2022.07.16</p>
+            <p className="main-bottom-date">2022.07.16</p>
             <div className="main-bottom-right-icon"></div>
           </div>
         </div>

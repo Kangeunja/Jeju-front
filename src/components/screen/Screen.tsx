@@ -48,11 +48,7 @@ const Screen = () => {
       <div className="screen-top-wrap" ref={screenRef}>
         <div className="container">
           <div className="screen-title">
-            <p>
-              스크린속에서
-              <br />
-              만나는 사계절 코스 여행
-            </p>
+            <p>스크린속에서 만나는 사계절 코스 여행</p>
             <p>
               계절별 제주도 여행코스 , 제주도에서 가볼만한곳을 영상으로
               만나보아요!
@@ -74,13 +70,6 @@ const Screen = () => {
                 가야 가장 좋은곳)
               </p>
             </div>
-            {/* <div className="screen-top-title">
-              <p>
-                봄 제주 가볼만한 15곳 빠르게 모아보기 🌸 (봄꽃스팟 + 봄에
-                가야 가장 좋은곳)
-              </p>
-              <p>#제주도여행 #서귀포여행코스 #제주시여행코스 #제주호캉스</p>
-            </div> */}
           </div>
         </div>
       </div>
@@ -111,13 +100,14 @@ const Screen = () => {
               지금 바로 영상으로 떠나볼까요!
             </p>
             <p>
-              제주도 몇박몇일 브이로그와 핫플인곳을 떠나는 여행 브이로그를{" "}
-              <br />
+              제주도 몇박몇일 브이로그와 핫플인곳을 떠나는 여행 브이로그를
               영상으로 만나보아요~!!
             </p>
           </div>
-          <div className="screen-bottom-con"></div>
-          <div className="screen-bottom-icon"></div>
+          <div className="screen-bottom-con">
+            <p>영상 준비중입니다.</p>
+            <div className="screen-bottom-icon"></div>
+          </div>
         </div>
       </div>
     </>

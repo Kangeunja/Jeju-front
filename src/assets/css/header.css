@@ -5,23 +5,28 @@
   top: 0;
   left: 0;
   z-index: 99;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #00000080;
   transition: 0.3s;
 }
 
 .header.shrink {
   height: 100px;
   background-color: white;
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
 }
 
 .header.shrink .logo-title,
 .header.shrink .menu_wrap,
-.header.shrink .side-menu {
+.header.shrink .side-menu button {
   color: black;
 }
 
 .header.shrink .logo-wrap {
   margin-top: -20px;
+}
+
+.header.shrink button:hover {
+  color: #ffa500;
 }
 
 .side-menu {
@@ -30,11 +35,16 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: white;
   font-size: 13px;
 }
 
-.side-menu p:hover {
+.side-menu button {
+  border: none;
+  background: transparent;
+  color: white;
+}
+
+.side-menu button:hover {
   color: #ffa500;
   cursor: pointer;
 }
@@ -65,7 +75,7 @@
 .logo-title {
   width: 130px;
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   text-align: center;
 }
 
@@ -82,4 +92,26 @@
 .menu_wrap p:hover {
   color: #ffa500;
   cursor: pointer;
+}
+
+@media (min-width: 1600px) {
+  .in-header {
+    justify-content: space-evenly;
+  }
+
+  .logo-wrap {
+    margin-top: 20px;
+  }
+
+  .header.shrink .logo-wrap {
+    margin-top: 10px;
+  }
+
+  .menu_wrap {
+    height: 120px;
+  }
+
+  .header.shrink .menu_wrap {
+    height: 100px;
+  }
 }
