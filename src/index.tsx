@@ -10,12 +10,12 @@ import ScrollTop from "./layouts/scrollTop/ScrollTop";
 import { worker } from "./api/browser";
 
 // 개발 환경에서만 MSW 실행
-if (process.env.NODE_ENV === "development") {
-  worker.start({
-    onUnhandledRequest: "bypass", // 모킹하지 않은 요청은 브라우저 통과
-  });
-  // worker.start();
-}
+// if (process.env.NODE_ENV === "development") {
+worker.start({
+  onUnhandledRequest: "bypass", // 모킹하지 않은 요청은 브라우저 통과
+});
+// worker.start();
+// }
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
